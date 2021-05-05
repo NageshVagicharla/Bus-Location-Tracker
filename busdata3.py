@@ -2,6 +2,7 @@ from pykafka import KafkaClient
 import json
 from datetime import datetime
 import uuid
+import time
 
 ipt_file = open('bus3.json')
 json_array = json.load(ipt_file)
@@ -11,7 +12,7 @@ def generate_uuid():
     return uuid.uuid4()
 
 client = KafkaClient(hosts="localhost:9092")
-topic = client.topics['busdata']
+topic = client.topics['geodata_final']
 producer = topic.get_sync_producer()
 
 data = {}
@@ -28,6 +29,7 @@ def generate_ckeckpoint(coords):
         message = json.dumps(data)
         producer.produce(message.encode('ascii'))
         print(message)
+        time.sleep(1)
         i += 1
 
 generate_ckeckpoint(coords)
