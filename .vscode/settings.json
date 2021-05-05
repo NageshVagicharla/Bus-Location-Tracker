@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "e:\\Projects\\Kafka Projects\\BusData\\venv\\Scripts\\python.exe"
+    "python.pythonPath": "e:\\Projects\\Kafka Projects\\BusData\\venv\\Scripts\\python.exe",
+    "python.formatting.provider": "black"
 }
