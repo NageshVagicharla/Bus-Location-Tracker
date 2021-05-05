@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 import uuid
 
-ipt_file = open('bus1.json')
+ipt_file = open('bus2.json')
 json_array = json.load(ipt_file)
 coords = json_array["features"][0]["geometry"]["coordinates"]
 
@@ -15,7 +15,7 @@ topic = client.topics['busdata']
 producer = topic.get_sync_producer()
 
 data = {}
-data["busline"] = '00001'
+data["busline"] = '00002'
 
 def generate_ckeckpoint(coords):
     i = 0
